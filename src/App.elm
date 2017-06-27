@@ -38,21 +38,21 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SetName name ->
-            ( { model | name = name }, Cmd.none )
+            { model | name = name } => Cmd.none
 
         SetAge age ->
-            ( { model | age = Result.withDefault 0 (String.toInt age) }, Cmd.none )
+            { model | age = Result.withDefault 0 (String.toInt age) } => Cmd.none
 
         SetEmail email ->
-            ( { model | email = email }, Cmd.none )
+            { model | email = email } => Cmd.none
 
         SubmitForm ->
             case validate model of
                 [] ->
-                    ( { model | errors = [] }, Cmd.none )
+                    { model | errors = [] } => Cmd.none
 
                 errors ->
-                    ( { model | errors = errors }, Cmd.none )
+                    { model | errors = errors } => Cmd.none
 
 
 
